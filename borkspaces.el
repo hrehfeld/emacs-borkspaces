@@ -61,10 +61,10 @@
                   0)
                 (completing-read "Switch to borkspace: " (borkspaces--saved-spaces) (lambda (candidate) (not (string-equal candidate (borkspaces--current-space)))))
                 ))
-  ;(message "borkspaces-switch: %S %S" arg space-name)
-  (let ((space-exists? (member space-name (borkspaces--saved-spaces)))
-        (previous-space-name (borkspaces--current-space)))
-    (borkspaces-save previous-space-name)
+  ;;(message "borkspaces-switch: %S %S" arg space-name)
+  (let ((space-exists? (member space-name (borkspaces--saved-spaces))))
+    (unless arg
+      (borkspaces-save (borkspaces--current-space)))
     (borkspaces--set-current-space space-name)
 
     (if space-exists?
