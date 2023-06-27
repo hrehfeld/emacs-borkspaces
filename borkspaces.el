@@ -69,7 +69,7 @@
 
     (if space-exists?
         (progn
-          ;(message "%S" (borkspaces--saved-spaces))
+          ;;(message "%S" (borkspaces--saved-spaces))
           (borkspaces-load space-name)
           ))))
 
